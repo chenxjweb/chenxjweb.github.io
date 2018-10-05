@@ -3,18 +3,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <base target="_blank" />
-	<title>Calendar</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="calendar.css" />
+    <base target="_blank"/>
+    <title>Calendar</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="calendar.css"/>
 
     <style>
         @font-face {
             font-family: "icomoon";
-            src:  url('fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
-                  url('fonts/icomoon.ttf?7kkyc2') format('truetype'),
-                  url('fonts/icomoon.woff?7kkyc2') format('woff'),
-                  url('fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
+            src: url('fonts/icomoon.eot?7kkyc2#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?7kkyc2') format('truetype'),
+            url('fonts/icomoon.woff?7kkyc2') format('woff'),
+            url('fonts/icomoon.svg?7kkyc2#icomoon') format('svg');
             font-weight: normal;
             font-style: normal;
         }
@@ -22,24 +22,24 @@
 </head>
 <body>
     <div class="container">
-	<div class="year">
-        <ul>
-            <li class="change up"></li>
-            <li>
-                <input type="text" id="year" readonly>
-            </li>
-            <li class="change down"></li>
-        </ul>
-    </div>
-    <div class="month">
-        <ul>
-            <li class="change up"></li>
-            <li>
-                <input type="text" id="month" readonly>
-            </li>
-            <li class="change down"></li>
-        </ul>
-    </div>
+        <div class="year">
+            <ul>
+                <li class="change up"></li>
+                <li>
+                    <input type="text" id="year" readonly>
+                </li>
+                <li class="change down"></li>
+            </ul>
+        </div>
+        <div class="month">
+            <ul>
+                <li class="change up"></li>
+                <li>
+                    <input type="text" id="month" readonly>
+                </li>
+                <li class="change down"></li>
+            </ul>
+        </div>
     </div>
 
 
@@ -122,8 +122,10 @@
             </ul>
         </div>
     </div>
+    <footer>
+        <p>Calendar v1.0 by Chenxj</p>
+    </footer>
 
-
-<script src="calendar.js"></script>
+    <script src="calendar.js"></script>
 </body>
 </html>
