@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+            width:750px;
+            height: 400px;
+            position: relative;
+        }
+        .small{
+            width:350px;
+            height: 350px;
+            position: relative;
+            cursor: move;
+        }
+        .mask{
+            width:150px;
+            height: 150px;
+            position: absolute;
+            background-color: rgba(250,255,0,0.3);
+            top:0;
+            left:0;
+            display: none;
+
+        }
+        .big{
+            width:400px;
+            height: 400px;
+            position: absolute;
+            top:0;
+            left:350px;
+            display: none;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="small">
+            <img src="images/booksmall.jpg" />
+            <div class="mask"></div>
+        </div>
+
+        <div class="big">
+            <img src="images/bookbig.jpg" />
+        </div>
+    </div>
+
+    <script>
+        var box=document.getElementById("box");
+        var small=box.children[0];
+        var big=box.children[1];
+        var mask=small.children[1];
+        var bigImg=big.children[0];
+
+        small.onmouseover=function () {
+            mask.style.display="block";
+            big.style.display="block";
+        }
+        small.onmouseout=function () {
+            mask.style.display="none";
+            big.style.display="none";
+        }
+
+        small.onmousemove=function (e) {
+            var x=e.clientX-mask.offsetWidth/2;//放大镜框的left
+            var y=e.clientY-mask.offsetHeight/2;//放大镜框的top
+            x=x<=0?0:x;
+            x=x>=small.offsetWidth-mask.offsetWidth?small.offsetWidth-mask.offsetWidth:x;
+            y=y<=0?0:y;
+            y=y>=small.offsetHeight-mask.offsetHeight?small.offsetHeight-mask.offsetHeight:y;
+            mask.style.left=x+"px";
+            mask.style.top=y+"px";
+
+            var maxX=bigImg.offsetWidth-big.offsetWidth;//大图横向移动最大距离
+            var maxY=bigImg.offsetHeight-big.offsetHeight;//大图纵向移动最大距离
+            var moveX=x*maxX/(small.offsetWidth-mask.offsetWidth);//大图横向移动距离
+            var moveY=y*maxY/(small.offsetHeight-mask.offsetHeight);//大图纵向移动距离
+
+            bigImg.style.marginLeft=-moveX+"px";
+            bigImg.style.marginTop=-moveY+"px";
+        }
+    </script>
+</body>
+</html>
